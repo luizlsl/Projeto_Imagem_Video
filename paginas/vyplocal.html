@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vídeo do Youtube de uma pasta local</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Garantir que o vídeo mantenha a proporção 16:9 */
+    .video-responsive {
+      position: relative;
+      padding-bottom: 56.25%; /* Proporção 16:9 */
+      height: 0;
+      overflow: hidden;
+    }
+    .video-responsive video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Vídeo do Youtube de uma pasta local</h1>
+    <div class="video-responsive rounded-lg overflow-hidden shadow-lg border border-gray-300">
+        <!-- Início do vídeo do youtube de uma pasta local
+       Altere o local da pasta em que o vídeo está salvo, altere somente "./videos/nomedovideo.mp4" -->
+      <video controls>
+        <source src="../videos/dogs-jump-into-a-pool.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+      </video>
+       <!-- Fim do vídeo do youtube de uma pasta local -->
+    </div>
+  </div>
+
+</body>
+</html>

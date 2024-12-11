@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Imagens</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Transições suaves no modal */
+    #imageModal {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <div class="container mx-auto p-6">
+    <h1 class="text-2xl font-bold mb-6 text-center">Galeria de Imagens</h1>
+
+    <div class="grid gap-4">
+      <!-- Imagem Principal -->
+       <!-- Luiz Silva Lima -->
+      <div>
+        <img id="mainImage" class="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]" source
+          src="../imagens/img1.jpg" alt="Imagem Principal" /> 
+      </div>
+      <!-- Início das miniaturas da imagens -->
+      <!-- As imagens estão dentro da subpasta imagens(../imagens), 
+       caso desejar alterar os nomes das imagens, altere img1.jpg para o nome da imagem seguido extensão-->
+      <!--img1.jpg é a primeira imagem da galeria-->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <!-- Luiz Silva Lima -->
+        <img onclick="setMainImage(this.src)" source src="../imagens/img1.jpg" &amp;
+          ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp; auto=format&amp; fit=crop&amp; w=1470&amp; q=80"
+          class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer" alt="Imagem 1" />
+        <!-- img2.jpg é a segunda imagem da galeria-->
+        <img onclick="setMainImage(this.src)" source src="../imagens/img2.jpg" &amp; ixlib=rb-1.2.1&amp;
+          auto=format&amp; fit=crop&amp; w=1950&amp; q=80"
+          class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer" alt="Imagem 2" />
+        <!-- img3.jpg é a terceira imagem da galeria-->
+         <!-- Luiz Silva Lima -->
+        <img onclick="setMainImage(this.src)" source src="../imagens/img3.jpg" &amp;
+          ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp; auto=format&amp; fit=crop&amp; w=2940&amp; q=80"
+          class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer" alt="Imagem 3" />
+        <!-- img4.jpg é a quarta imagem da galeria-->
+        <img onclick="setMainImage(this.src)" source src="../imagens/img4.jpg" &amp;
+          ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp; auto=format&amp; fit=crop&amp; w=2762&amp; q=80"
+          class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer" alt="Imagem 4" />
+        <!-- img5.jpg é a quinta imagem da galeria-->
+         <!-- Luiz Silva Lima -->
+        <img onclick="setMainImage(this.src)" source src="../imagens/img5.jpg" &amp;
+          ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp; auto=format&amp; fit=crop&amp; w=2832&amp; q=80"
+          class="object-cover object-center h-20 max-w-full rounded-lg cursor-pointer" alt="Imagem 5" />
+      </div>
+    </div>
+    <!-- Fim das miniaturas da imagens -->
+  </div>
+
+  <!-- Modal para abrir a imagem e ampliar -->
+   <!-- Luiz Silva Lima -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
+    <div class="relative">
+      <button onclick="closeModal()"
+        class="absolute top-2 right-2 bg-white text-black rounded-full px-3 py-1 shadow-md">
+        Fechar
+      </button>
+      <img id="modalImage" src="" alt="Imagem Ampliada" class="max-w-full max-h-screen rounded-lg shadow-lg">
+    </div>
+  </div>
+
+  <!-- Luiz Silva Lima -->
+  <script>
+    // Troca a imagem principal
+    function setMainImage(src) {
+      const mainImage = document.getElementById('mainImage');
+      mainImage.src = src;
+    }
+
+    // Abre o modal
+    function openModal() {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = document.getElementById('mainImage').src;
+      modal.classList.remove('hidden');
+    }
+
+    // Fecha o modal da imagem ampliada
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.add('hidden');
+    }
+
+    // Adiciona evento de clique na imagem principal para abrir o modal
+    document.getElementById('mainImage').addEventListener('click', openModal);
+  </script>
+
+</body>
+
+</html>
